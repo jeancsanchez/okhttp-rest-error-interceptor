@@ -43,6 +43,6 @@ Add it in your root build.gradle at the end of repositories:
 Add the dependency
 ```groovy
 	dependencies {
-	        implementation 'com.github.jeancsanchez:okhttp-rest-error-intercepto:{latest version}'
+	        implementation 'com.github.jeancsanchez:okhttp-rest-error-interceptor:{latest version}'
 	}
 ```
