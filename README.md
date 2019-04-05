@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/jeancsanchez/okhttp-rest-error-interceptor.svg)](https://jitpack.io/#jeancsanchez/okhttp-rest-error-interceptor)
+
 Rest Error Interceptor
 ===================
 
