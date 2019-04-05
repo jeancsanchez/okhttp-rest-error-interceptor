@@ -2,8 +2,21 @@
 
 Rest Error Interceptor
 ===================
-This will intercept the codes responses and throw the proper exception.
+This will intercept the codes responses and throw the proper exception. </br>
 
+Example
+--------
+
+```kotlin
+Try {
+	repository.makeRestRequest()
+	
+} catch (Throwable throwable){
+	if(throwable is Unauthorizad){
+		// Make login again.
+	}
+}
+```
 ```java
 RestErrorInterceptor errorInterceptor = new RestErrorInterceptor();
 OkHttpClient client = new OkHttpClient.Builder()
