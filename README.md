@@ -17,6 +17,10 @@ Try {
 	}
 }
 ```
+
+How to
+------
+
 ```java
 RestErrorInterceptor errorInterceptor = new RestErrorInterceptor();
 OkHttpClient client = new OkHttpClient.Builder()
