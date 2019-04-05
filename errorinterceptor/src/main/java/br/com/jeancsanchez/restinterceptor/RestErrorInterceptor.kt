@@ -12,21 +12,18 @@ import okhttp3.Response
 
 class RestErrorInterceptor : Interceptor {
 
-    override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
-        val response = chain.proceed(request)
-
-        when (response.code()) {
-            400 -> throw BadRequest
-            401 -> throw Unauthorized
-            403 -> throw Forbidden
-            404 -> throw NotFound
-            405 -> throw MethodNotAllowed
-            500 -> throw InternalServerError
-            502 -> throw BadGateway
-            503 -> throw ServiceUnavailable
+    override fun intercept(chain: Interceptor.Chain): Response = chain.request().let {
+        chain.proceed(it).apply {
+            when(code()) {
+                400 -> throw BadRequest
+                401 -> throw Unauthorized
+                403 -> throw Forbidden
+                404 -> throw NotFound
+                405 -> throw MethodNotAllowed
+                500 -> throw InternalServerError
+                502 -> throw BadGateway
+                503 -> throw ServiceUnavailable
+            }
         }
-
-        return response
     }
 }
