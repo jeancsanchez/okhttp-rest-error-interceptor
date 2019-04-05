@@ -24,6 +24,6 @@ Gradle
 Add the dependency
 ```groovy
 	dependencies {
-	        implementation 'com.github.jeancsanchez:Okhttp-Rest-Error-Interceptor:{latest version}'
+	        implementation 'com.github.jeancsanchez:okhttp-rest-error-intercepto:{latest version}'
 	}
 ```
