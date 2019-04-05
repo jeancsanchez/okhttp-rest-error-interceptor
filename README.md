@@ -2,6 +2,7 @@
 
 Rest Error Interceptor
 ===================
+This will intercept the codes responses and throw the proper exception.
 
 ```java
 RestErrorInterceptor errorInterceptor = new RestErrorInterceptor();
