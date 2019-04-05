@@ -10,7 +10,20 @@ OkHttpClient client = new OkHttpClient.Builder()
 
 Download
 --------
-Gradle
+Add it in your root build.gradle at the end of repositories:
 ```groovy
-implementation ':(insert latest version)'
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+  ```
+  
+Gradle
+Add the dependency
+```groovy
+	dependencies {
+	        implementation 'com.github.jeancsanchez:Okhttp-Rest-Error-Interceptor:{latest version}'
+	}
 ```
