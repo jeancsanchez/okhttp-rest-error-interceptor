@@ -11,7 +11,7 @@ Example
 Try {
 	repository.makeRestRequest()
 	
-} catch (Throwable throwable){
+} catch (throwable: Throwable){
 	if(throwable is Unauthorizad){
 		// Make login again.
 	}
