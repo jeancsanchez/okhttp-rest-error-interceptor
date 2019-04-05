@@ -3,7 +3,7 @@
 Rest Error Interceptor
 ===================
 
-This interceptor provides a easy way to handle the most common REST HTTP status code as exceptions.
+This interceptor provides an easy way to handle the most common REST HTTP status code as exceptions.
 
 Example
 --------
