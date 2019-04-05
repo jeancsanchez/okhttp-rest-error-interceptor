@@ -10,7 +10,7 @@ Example
 
 ```kotlin
 try {
-	repository.makeRestRequest()	
+    repository.makeRestRequest()
 } catch (throwable: Throwable) {
     when(throwable) {
         BadRequest -> { } // Handle the bad request status code
@@ -35,18 +35,18 @@ Download
 1- Add the Jitpack Repository in your root build.gradle file:
 
 ```groovy
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
   ```
 
 2- Add the dependency in your project-level build.gradle file:
 
 ```groovy
-	dependencies {
-	        implementation 'com.github.jeancsanchez:okhttp-rest-error-interceptor:{latest version}'
-	}
+dependencies {
+    implementation 'com.github.jeancsanchez:okhttp-rest-error-interceptor:{latest version}'
+}
 ```
