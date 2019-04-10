@@ -2,51 +2,47 @@
 
 Rest Error Interceptor
 ===================
-
-This interceptor provides an easy way to handle the most common REST HTTP status code as exceptions.
+This will intercept the codes responses and throw the proper exception. </br>
 
 Example
 --------
 
 ```kotlin
-try {
-    repository.makeRestRequest()
-} catch (throwable: Throwable) {
-    when(throwable) {
-        BadRequest -> { } // Handle the bad request status code
-        InternalServerError -> {  } // Handle the internal server error status code
-        Unauthorized -> {  } // Handle the unauthorized status code
-    }
+Try {
+	repository.makeRestRequest()
+	
+} catch (throwable: Throwable){
+	if(throwable is Unauthorizad){
+		// Make login again.
+	}
 }
 ```
 
 How to
 ------
 
-```kotlin
-val errorInterceptor = RestErrorInterceptor()
-val client = OkHttpClient.Builder()
-    .addInterceptor(errorInterceptor)
-    .build()
+```java
+RestErrorInterceptor errorInterceptor = new RestErrorInterceptor();
+OkHttpClient client = new OkHttpClient.Builder()
+  .addInterceptor(errorInterceptor)
+  .build();
 ```
 
 Download
 --------
-1- Add the Jitpack Repository in your root build.gradle file:
-
+Add it in your root build.gradle at the end of repositories:
 ```groovy
-allprojects {
-    repositories {
-        ...
-        maven { url 'https://jitpack.io' }
-    }
-}
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
   ```
 
-2- Add the dependency in your project-level build.gradle file:
-
+Add the dependency
 ```groovy
-dependencies {
-    implementation 'com.github.jeancsanchez:okhttp-rest-error-interceptor:{latest version}'
-}
+	dependencies {
+	        implementation 'com.github.jeancsanchez:okhttp-rest-error-interceptor:{latest version}'
+	}
 ```
