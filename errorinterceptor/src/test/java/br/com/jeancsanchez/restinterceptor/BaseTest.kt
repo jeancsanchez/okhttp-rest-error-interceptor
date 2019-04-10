@@ -1,13 +1,5 @@
 package br.com.jeancsanchez.restinterceptor
 
-import br.com.jeancsanchez.restinterceptor.errors.BadGateway
-import br.com.jeancsanchez.restinterceptor.errors.BadRequest
-import br.com.jeancsanchez.restinterceptor.errors.Forbidden
-import br.com.jeancsanchez.restinterceptor.errors.InternalServerError
-import br.com.jeancsanchez.restinterceptor.errors.MethodNotAllowed
-import br.com.jeancsanchez.restinterceptor.errors.NotFound
-import br.com.jeancsanchez.restinterceptor.errors.ServiceUnavailable
-import br.com.jeancsanchez.restinterceptor.errors.Unauthorized
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.mock
@@ -36,26 +28,8 @@ open class BaseTest {
 
 }
 
-fun Throwable.isBadRequest() =
-    assertThat(this, instanceOf(BadRequest::class.java))
+typealias RestError = br.com.jeancsanchez.restinterceptor.errors.Error
 
-fun Throwable.isUnauthorized() =
-    assertThat(this, instanceOf(Unauthorized::class.java))
-
-fun Throwable.isForbidden() =
-    assertThat(this, instanceOf(Forbidden::class.java))
-
-fun Throwable.isNotFound() =
-    assertThat(this, instanceOf(NotFound::class.java))
-
-fun Throwable.isMethodNotAllowed() =
-    assertThat(this, instanceOf(MethodNotAllowed::class.java))
-
-fun Throwable.isInteralServerError() =
-    assertThat(this, instanceOf(InternalServerError::class.java))
-
-fun Throwable.isBadGateway() =
-    assertThat(this, instanceOf(BadGateway::class.java))
-
-fun Throwable.isServiceUnavailable() =
-    assertThat(this, instanceOf(ServiceUnavailable::class.java))
+inline fun <reified T : RestError> Throwable.isInstanceOf() {
+    assertThat(this, instanceOf(T::class.java))
+}
