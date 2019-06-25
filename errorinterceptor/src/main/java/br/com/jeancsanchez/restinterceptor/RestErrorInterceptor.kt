@@ -22,6 +22,7 @@ class RestErrorInterceptor : Interceptor {
             403 -> throw Forbidden
             404 -> throw NotFound
             405 -> throw MethodNotAllowed
+            409 -> throw Conflict
             500 -> throw InternalServerError
             502 -> throw BadGateway
             503 -> throw ServiceUnavailable
